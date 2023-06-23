@@ -193,7 +193,7 @@ export class SourceControlImportService {
 			if (overriddenKeys.length > 0 && valueOverrides) {
 				for (const key of overriddenKeys) {
 					result.imported.push(key);
-					const newVariable = new Variables({ key, value: valueOverrides[key] });
+					const newVariable = Db.collections.Variables.create({ key, value: valueOverrides[key] });
 					await Db.collections.Variables.save(newVariable);
 				}
 			}
